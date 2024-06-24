@@ -124,6 +124,10 @@ if __name__ == "__main__":
             )
             convert_txt_to_xlsx(file_txt_path, file_xlsx_path)
 
+    logger.info(DIMMING_VIDEO)
+    # prende il video e gli mette il blackscreen
+    
+
     logger.info(CROP_VIDEO)
     cut_videos(
         os.path.join(args.output_path, "xlsx/"),
