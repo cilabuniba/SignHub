@@ -1,4 +1,4 @@
-from downloader.logger import logger
+from logger import logger
 import os
 
 

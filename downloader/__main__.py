@@ -10,7 +10,7 @@ from downloader.utils.utils import (
     make_download_directory,
 )
 from downloader.downloader.downloader import DownloaderVideo, DownloaderAudio
-from downloader.logger import logger
+from logger import logger
 from pytube import Playlist, YouTube
 import os
 from downloader.parser.constants import (

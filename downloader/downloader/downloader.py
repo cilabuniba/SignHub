@@ -1,4 +1,4 @@
-from downloader.logger import logger
+from logger import logger
 from downloader.utils.utils import std_str
 from concurrent.futures import ThreadPoolExecutor
 import yt_dlp

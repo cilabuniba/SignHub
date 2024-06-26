@@ -1,5 +1,5 @@
 import whisper
-from downloader.logger import logger
+from logger import logger
 import pandas as pd
 import os
 
