@@ -163,3 +163,13 @@ cython_debug/
 #.idea/
 downloader/playlist.md
 LIS
+pose-estimation/estimators/hands/Hamer/third-party/
+pose-estimation/estimators/hands/Hamer/_DATA/hamer_ckpts
+pose-estimation/estimators/hands/Hamer/_DATA/vitpose_ckpts
+pose-estimation/estimators/hands/Hamer/_DATA/mano/mano_mean_params.npz
+pose-estimation/estimators/body/HybrIK/model_files/
+pose-estimation/estimators/body/HybrIK/pretrained_models/
+pose-estimation/estimators/face/Face_Mediapipe/model/
+pose-estimation/estimators/body/HybrIK/cnn_models/
+pose-estimation/estimators/hands/Hamer/third-party/ViTPose/
+pose-estimation/estimators/hands/Hamer/_DATA/
