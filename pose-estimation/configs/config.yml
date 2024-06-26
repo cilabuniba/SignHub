@@ -1,0 +1,22 @@
+#COMMON PARAMS
+video_frames_path: "{}/video/frames/" #vid/video/frames
+required_body_output_params: {
+  "rot_mats": [ "body" ],
+  "joints": [ "body" ],
+  "camera": [],
+  "betas": [ "body" ],
+  "expression": [ "body" ],
+  "phi": [ "body" ],
+  "focal": []
+}
+required_hands_output_params: {
+  "rot_mats": [ "left_hand", "right_hand" ],
+  "joints": [ "left_hand", "right_hand" ],
+  "camera": [ ],
+}
+required_face_output_params: {
+  "blendshapes": [],
+}
+
+#AWS PARAMS
+"bucket_s3": "video-to-animation"
