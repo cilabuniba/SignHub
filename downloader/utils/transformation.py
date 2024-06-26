@@ -1,5 +1,5 @@
 import pandas as pd
-from downloader.logger import logger
+from tqdm import tqdm
 import os
 from moviepy.video.io.VideoFileClip import VideoFileClip
 
@@ -38,3 +38,31 @@ def crop_video(video, start_time, end_time, output_path):
     subclip = video.subclip(start_time, end_time)
     subclip.write_videofile(output_path)
     subclip.close()
+
+
+# Definisce una funzione per oscurare la metà destra del frame
+def darken_frame(get_frame, t):
+    frame = get_frame(t).copy()  # Crea una copia modificabile del frame
+    width = frame.shape[1]
+    frame[:, width - int(width * 0.60) :] = 0  # Oscura la parte destra del frame
+    return frame
+
+
+def darken_right_half(video, output_video_path, bitrate=3301):
+    darkened_clip = VideoFileClip(video).fl(darken_frame)
+
+    # Usa tqdm per mostrare una barra di progresso durante la scrittura del video di output
+    total_frames = int(darkened_clip.fps * darkened_clip.duration)
+    with tqdm(total=total_frames, desc="Elaborazione video", unit="frame") as pbar:
+
+        def update_progress(get_frame, t):
+            pbar.update(1)
+            return darken_frame(get_frame, t)
+
+        final_clip = darkened_clip.fl(update_progress)
+
+        final_clip.write_videofile(
+            output_video_path, codec="libx264", bitrate=f"{bitrate}k"
+        )
+
+    print(f"Video salvato in {output_video_path}")

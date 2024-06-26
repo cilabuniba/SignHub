@@ -2,7 +2,7 @@ from downloader.parser.args import init_parser
 from downloader.parser.annotations import generate_from_playlist, generate_from_video
 from downloader.transcribe.transcribe import transcribe, convert_txt_to_xlsx
 from downloader.utils.json_crud import create_json, read_json
-from downloader.utils.transformation import cut_videos
+from downloader.utils.transformation import cut_videos, darken_right_half
 from downloader.utils.utils import (
     compare_and_merge_lists,
     compare_list_to_folder_audio,
@@ -126,7 +126,11 @@ if __name__ == "__main__":
 
     logger.info(DIMMING_VIDEO)
     # prende il video e gli mette il blackscreen
-    
+    for video in os.listdir(os.path.join(args.output_path, "video/")):
+        darken_right_half(
+            os.path.join(args.output_path, "video/", video),
+            os.path.join(args.output_path + "video_blind/"),
+        )
 
     logger.info(CROP_VIDEO)
     cut_videos(
