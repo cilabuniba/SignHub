@@ -38,7 +38,7 @@ if __name__ == "__main__":
                         help="define if must be saved the video result with MANO mesh")
     parser.add_argument('--save_imgs_resulted', action='store_true', default=False,
                         help="define if must be saved the single rendered images")
-    parser.add_argument('--fps', default=60,
+    parser.add_argument('--fps', default=30,
                         help="video fps")
 
     # parse args

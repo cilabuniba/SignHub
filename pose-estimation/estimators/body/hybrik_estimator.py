@@ -16,7 +16,7 @@ class HybrIKEstimator(HumanBodyEstimator, ABC):
 
     def set_pose_dir(self):
         pose_dir = "pose/hybrik"
-        self.pose_dir = os.path.join("LIS/LISDataset/result_hybrik", self.vid, pose_dir)
+        self.pose_dir = os.path.join(self.vid, pose_dir)
         self.hybrik_pickle_out_path = os.path.join(self.pose_dir, "output_tmp.pkl")
 
     def body_estimation_module(
